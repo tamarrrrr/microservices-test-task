@@ -1,5 +1,7 @@
 # Тестовое задание по курсу Microservices
 
+![Build Workflow](../../workflows/Build%20project/badge.svg?branch=master)
+
 ## Hello, world сервер
 
 Написать простейший веб-сервер, который на _любой запрос_ возвращает строку `Hello, $GREETING_NAME`, где `GREETING_NAME`
@@ -10,6 +12,8 @@
 1. Сервер запускается на порту `8080`.
 2. Нужно описать [Dockerfile](Dockerfile) для упаковки сервера в контейнер.
 3. При старте контейнера через переменную среды `GREETING_NAME` передается имя.
+4. В файле [build.yml](.github/workflows/build.yml) дописать сборку проекта с
+   помощью [Github Actions](https://docs.github.com/en/actions).
 
 Пример реализации [Microservices Test Task](https://github.com/Romanow/microservices-test-task-completed).
 

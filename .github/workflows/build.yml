@@ -6,20 +6,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      - name: Build project
-        uses: eskatos/gradle-command-action@v1
-        with:
-          arguments: clean build
+
+      # TODO build project
+
       - uses: docker/setup-buildx-action@v2
+
       - name: Build docker image
         uses: docker/build-push-action@v3
         with:
           context: .
           load: true
           tags: simple-server:v1.0
+
       - name: Test
         run: |
           docker run -d --name simple-server -p 8080:8080 -e GREETING_NAME=Alex simple-server:v1.0
