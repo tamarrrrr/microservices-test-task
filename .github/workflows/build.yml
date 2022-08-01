@@ -18,8 +18,7 @@ jobs:
       
         name: Build and push
       - uses: docker/build-push-action@v3
-        with:
-          push: true
+        with:          
           context: .
           load: true
           tags: simple-server:v1.0         
