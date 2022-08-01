@@ -32,7 +32,7 @@ namespace helloworldserver
                 }
 
                 // Write the response info                    
-                string? greetingName = String.IsNullOrEmpty(Environment.GetEnvironmentVariable("GREETING_NAME")) ? Environment.GetEnvironmentVariable("GREETING_NAME") : "Anonymous";
+                string? greetingName = String.IsNullOrEmpty(Environment.GetEnvironmentVariable("GREETING_NAME")) ? "Anonymous" : Environment.GetEnvironmentVariable("GREETING_NAME");
                 byte[] output = Encoding.UTF8.GetBytes($"Hello, {greetingName}");
                 response.ContentType = "text/html";
                 response.ContentEncoding = Encoding.UTF8;
