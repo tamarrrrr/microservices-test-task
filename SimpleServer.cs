@@ -20,18 +20,18 @@ namespace helloworldserver
                 // wait for request
                 HttpListenerContext context = await serverListener.GetContextAsync();
 
-                // Peel out the requests and response objects
+                // request and response objects
                 HttpListenerRequest request = context.Request;
                 HttpListenerResponse response = context.Response;
 
-                // If `shutdown` url requested w/ POST, then shutdown the server after serving the page
+                // If `shutdown` url requested then shutdown
                 if (request?.Url?.AbsolutePath == "/shutdown")
                 {
                     Console.WriteLine("Shutdown requested");
                     runServer = false;
                 }
 
-                // Write the response info                    
+                // response
                 string? greetingName = String.IsNullOrEmpty(Environment.GetEnvironmentVariable("GREETING_NAME")) ? "Anonymous" : Environment.GetEnvironmentVariable("GREETING_NAME");
                 byte[] output = Encoding.UTF8.GetBytes($"Hello, {greetingName}");
                 response.ContentType = "text/html";
